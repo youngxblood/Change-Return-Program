@@ -15,7 +15,8 @@ namespace ChangeReturnProgram
 
             // Variable declaration
             string userInput;
-            //decimal itemPrice;
+            decimal itemPrice;
+            decimal itemPriceCents;
             bool isNumeric = false;
             bool isRunning = true;
 
@@ -24,18 +25,17 @@ namespace ChangeReturnProgram
 
 
 
-            do
-            {
-
-                // Creates new random object
-                Random itemPrice = new Random(300);
+            
+            
+                // Produces a random number from 1-300
+                Random r = new Random();
+                itemPrice = r.Next(1, 300);
                 Console.WriteLine(itemPrice);
-                //int itemPrice = itemPrice.Next(300);
              
 
 
                 // Do-While ensures that the code is re-run until there is a valid number
-                do
+                if (isNumeric == false)
                 {
 
                     userInput = Console.ReadLine();
@@ -52,9 +52,8 @@ namespace ChangeReturnProgram
                         isNumeric = false;
                     }
 
-                } while (isNumeric == false);
+                }
 
-            } while (isRunning == true);
             }
     }
 }
