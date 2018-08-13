@@ -15,27 +15,35 @@ namespace ChangeReturnProgram
 
             // Variable declaration
             string userInput;
-            decimal itemPrice;
-            decimal itemPriceCents;
+            decimal itemDollarPrice;
+            decimal itemCentPrice;
+            decimal finalItemPrice;
             bool isNumeric = false;
-            bool isRunning = true;
 
 
             Console.WriteLine("Welcome to the random price shop! Where you never really know what you are going to pay!");
 
 
 
-            
-            
-                // Produces a random number from 1-300
-                Random r = new Random();
-                itemPrice = r.Next(1, 300);
-                Console.WriteLine(itemPrice);
-             
 
 
-                // Do-While ensures that the code is re-run until there is a valid number
-                if (isNumeric == false)
+            // Produces a random number from 1-300
+            var r = new Random();
+            itemDollarPrice = r.Next(1, 300);
+            var rand = new Random();
+            decimal tempCentPrice = new decimal(rand.NextDouble());
+
+            itemCentPrice = Decimal.Round(tempCentPrice, 2, MidpointRounding.AwayFromZero);
+
+            finalItemPrice = itemDollarPrice + itemCentPrice;
+
+            Console.WriteLine(itemDollarPrice);
+            Console.WriteLine(itemCentPrice);
+            Console.WriteLine(finalItemPrice);
+
+
+            // isNumeric = boolean to check if the input is valid
+            while (isNumeric == false)
                 {
 
                     userInput = Console.ReadLine();
@@ -54,6 +62,6 @@ namespace ChangeReturnProgram
 
                 }
 
-            }
+            } 
     }
 }
